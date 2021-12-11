@@ -15,5 +15,31 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "import/extensions": [
+            "error",
+            {
+                "js": "ignorePackages"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": "*test.*",
+            "rules": {
+                "no-undef": "off"
+            }
+        }
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
     }
 }
