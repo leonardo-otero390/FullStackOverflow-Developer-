@@ -6,13 +6,11 @@ export async function insertQuestion(
   tags: string,
 ): Promise<number | null> {
   const result = await connection.query(
-    `
-    INSERT INTO questions
+    `INSERT INTO questions
     (questioner, question, tags)
     VALUES
     ($1, $2, $3)
-    RETURNING id
-  `,
+    RETURNING id`,
     [questioner, question, tags],
   );
   if (!result.rowCount) return null;

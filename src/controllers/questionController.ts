@@ -9,7 +9,7 @@ export async function postQuestion(req: Request, res: Response) {
   try {
     await questionValidation.validateQuestionBody(question);
     const questionId = await questionService.createQuestion(question);
-    return res.status(httpStatusCode.OK).send({ id: questionId });
+    return res.status(httpStatusCode.CREATED).send({ id: questionId });
   } catch (error) {
     if (error.message === 'Bad request') {
       return res.sendStatus(httpStatusCode.BAD_REQUEST);

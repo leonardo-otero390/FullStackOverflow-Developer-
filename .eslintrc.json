@@ -29,6 +29,12 @@
             "rules": {
                 "no-undef": "off"
             }
+        },
+        {
+            "files": "*database.ts",
+            "rules": {
+                "quotes": "off"
+            }
         }
     ],
     "settings": {
