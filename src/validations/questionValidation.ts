@@ -1,8 +1,8 @@
-import { QuestionBody } from '../interfaces/interfaces';
+import { Question } from '../interfaces/interfaces';
 import * as schemas from './schemas';
 
 async function validateQuestionBody(
-  questionBody: QuestionBody,
+  questionBody: Question,
 ): Promise<boolean | Error> {
   const validation = schemas.questionBodySchema.validate(questionBody);
   if (validation.error) throw new Error('Bad request');

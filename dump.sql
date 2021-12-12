@@ -1,10 +1,12 @@
 CREATE TABLE "questions" (
 	"id" serial NOT NULL,
 	"question" TEXT NOT NULL,
-	"questioner" varchar(255) NOT NULL,
+	"student" varchar(255) NOT NULL,
+	"class" varchar(255) NOT NULL,
 	"tags" TEXT,
-	"submitedAt" DATE NOT NULL DEFAULT 'NOW()',
-	"answeredAt" DATE,
+	"submitedAt" TIME NOT NULL DEFAULT 'NOW()',
+	"answered" BOOLEAN DEFAULT FALSE,
+	"answeredAt" TIME,
 	"answer" TEXT,
 	"answerner_id" integer,
 	CONSTRAINT "questions_pk" PRIMARY KEY ("id")

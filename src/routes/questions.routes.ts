@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { postQuestion } from '../controllers/questionController';
+import * as questionController from '../controllers/questionController';
 
 const routes = Router();
 
-routes.post('/', postQuestion);
-
+routes.post('/', questionController.post);
+routes.get('/:id', questionController.get);
 export default routes;
