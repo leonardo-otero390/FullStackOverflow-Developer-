@@ -1,12 +1,9 @@
 import connection from '../database/connection';
 import { Question } from '../interfaces/interfaces';
 
-export async function insert(
-  student: string,
-  question: string,
-  tags: string,
-  className: string,
-): Promise<number | null> {
+export async function insert(questionBody: Question): Promise<number | null> {
+  const { student, question, tags } = questionBody;
+  const className = questionBody.class;
   const result = await connection.query(
     `INSERT INTO questions
     (student, question, tags, class)

@@ -2,12 +2,7 @@ import { Question } from '../interfaces/interfaces';
 import * as questionRepository from '../repositories/questionRepository';
 
 export async function create(questionBody: Question): Promise<number> {
-  const questionId = await questionRepository.insert(
-    questionBody.student,
-    questionBody.question,
-    questionBody.tags,
-    questionBody.class,
-  );
+  const questionId = await questionRepository.insert(questionBody);
 
   if (!questionId) throw new Error();
   return questionId;

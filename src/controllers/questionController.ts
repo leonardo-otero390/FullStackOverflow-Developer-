@@ -14,7 +14,6 @@ export async function post(req: Request, res: Response) {
     if (error.message === 'Bad request') {
       return res.sendStatus(httpStatusCode.BAD_REQUEST);
     }
-    console.log(error.message);
     return res.sendStatus(httpStatusCode.INTERNAL_SERVER_ERROR);
   }
 }
