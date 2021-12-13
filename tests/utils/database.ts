@@ -55,7 +55,7 @@ export async function createUser(userBody: User): Promise<number> {
   return result.rows[0].id;
 }
 export async function cleanDatabase() {
-  await connection.query(`TRUNCATE questions RESTART IDENTITY`);
+  await connection.query(`TRUNCATE questions,users RESTART IDENTITY`);
 }
 
 export async function endConnection() {

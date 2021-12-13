@@ -22,3 +22,17 @@ export async function getQuestion(
   }
   return questionFound;
 }
+export async function answerQuestion(
+  questionId: number,
+): Promise<Question | Error> {
+  if (Number.isNaN(questionId)) throw new Error('Bad request');
+  const questionFound = await questionRepository.find(questionId);
+  if (!questionFound) throw new Error('Not found');
+  const answered: boolean = questionFound.answered;
+  if (!answered) {
+    delete questionFound.answeredAt;
+    delete questionFound.answerner_id;
+    delete questionFound.answer;
+  }
+  return questionFound;
+}
